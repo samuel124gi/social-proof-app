@@ -49,12 +49,21 @@ export const Text = styled.p`
   color: ${colors.primary02};
 `;
 export const RatingsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 542px;
+  display: grid;
+  gap: 5px;
   height: 100%;
   padding: 16px;
+  & > div:nth-child(1) {
+    transform: translateX(-20px);
+  }
+
+  & > div:nth-child(2) {
+    transform: translateX(0);
+  }
+
+  & > div:nth-child(3) {
+    transform: translateX(20px);
+  }
 `;
 
 export const RatingContainer = styled.div`
@@ -68,7 +77,6 @@ export const RatingContainer = styled.div`
   gap: 40px;
   background-color: ${colors.secondary01};
   border-radius: 8px;
-  display: inline-flex;
 `;
 
 export const StarsContainer = styled.div`
@@ -108,9 +116,21 @@ export const CardsContainer = styled.div`
   gap: 10px;
   height: 270px;
   padding: 16px;
+  & > div:nth-child(1) {
+    transform: translateY(-20px);
+  }
+
+  & > div:nth-child(2) {
+    transform: translateY(0);
+  }
+
+  & > div:nth-child(3) {
+    transform: translateY(20px);
+  }
 `;
 export const Card = styled.div`
   display: flex;
+  justify-content: center;
   gap: 20px;
   border-radius: 8px;
   padding: 20px 32px;
