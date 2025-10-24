@@ -31,6 +31,31 @@ import Top from "../../assets/icons/bg-pattern-top-desktop.svg";
 import Bottom from "../../assets/icons//bg-pattern-bottom-desktop.svg";
 import Stars from "../../assets/icons/icon-star.svg";
 
+const profiles = [
+  {
+    image: colton,
+    name: "Colton Smith",
+    description: "Verified Buyer",
+    message:
+      "“ We needed the same printed design as the one we had ordered a week prior. Not only did they find the original order, but we also received it in time. Excellent! ”",
+  },
+  {
+    image: irene,
+    name: "Irene Roberts",
+    description: "Verified Buyer",
+    message:
+      "“ Customer service is always excellent and very quick turn around. Completely delighted with the simplicity of the purchase and the speed of delivery.”",
+  },
+  {
+    image: anne,
+    name: "Anne Wallace",
+    description: "Verified Buyer",
+    message:
+      "“ Put an order with this company and can only praise them for the very high standard. Will definitely use them again and recommendthem to everyone! ”",
+  },
+];
+
+const ratedPlaces = ["Reviews", "Report Guru", "BestTech"];
 const Main = () => {
   return (
     <MainContainer>
@@ -48,7 +73,7 @@ const Main = () => {
             </Text>
           </TextContainer>
           <RatingsContainer>
-            <FirstContainer>
+            {ratedPlaces.map((ratedPlace) => (
               <RatingContainer>
                 <StarsContainer>
                   <Stars />
@@ -57,90 +82,27 @@ const Main = () => {
                   <Stars />
                   <Stars />
                 </StarsContainer>
-                <RatingText>Rated 5 Stars in Reviews</RatingText>
+                <RatingText>Rated 5 Stars in {ratedPlace}</RatingText>
               </RatingContainer>
-            </FirstContainer>
-            <SecondContainer>
-              <RatingContainer>
-                <StarsContainer>
-                  <Stars />
-                  <Stars />
-                  <Stars />
-                  <Stars />
-                  <Stars />
-                </StarsContainer>
-                <RatingText>Rated 5 Stars in Report Guru</RatingText>
-              </RatingContainer>
-            </SecondContainer>
-            <ThirdContainer>
-              <RatingContainer>
-                <StarsContainer>
-                  <Stars />
-                  <Stars />
-                  <Stars />
-                  <Stars />
-                  <Stars />
-                </StarsContainer>
-                <RatingText>Rated 5 Stars in BestTech</RatingText>
-              </RatingContainer>
-            </ThirdContainer>
+            ))}
           </RatingsContainer>
         </TopContainer>
+
         <CardsContainer>
-          <FirstContainer>
+          {profiles.map((profile) => (
             <Card>
               <Container>
                 <ImageContainer>
-                  <Image src={colton} />
+                  <Image src={profile.image} />
                 </ImageContainer>
                 <NamesContainer>
-                  <Name>Colton Smith</Name>
-                  <Title>Verified Buyer</Title>
+                  <Name>{profile.name}</Name>
+                  <Title>{profile.description}</Title>
                 </NamesContainer>
               </Container>
-              <CardText>
-                “ We needed the same printed design as the one we had ordered a
-                week prior. Not only did they find the original order, but we
-                also received it in time. Excellent! ”
-              </CardText>
+              <CardText>{profile.message}</CardText>
             </Card>
-          </FirstContainer>
-          <SecondContainer>
-            <Card>
-              <Container>
-                <ImageContainer>
-                  <Image src={irene} />
-                </ImageContainer>
-                <NamesContainer>
-                  <Name>Irene Roberts</Name>
-                  <Title>Verified Buyer</Title>
-                </NamesContainer>
-              </Container>
-              <CardText>
-                “ Customer service is always excellent and very quick turn
-                around. Completely delighted with the simplicity of the purchase
-                and the speed of delivery.”
-              </CardText>
-            </Card>
-          </SecondContainer>
-          <ThirdContainer>
-            <Card>
-              <Container>
-                <ImageContainer>
-                  <Image src={anne} />
-                </ImageContainer>
-                <NamesContainer>
-                  <Name>Anne Wallace</Name>
-                  <Title>Verified Buyer</Title>
-                </NamesContainer>
-              </Container>
-              <CardText>
-                “ Put an order with this company and can only praise them for
-                the very high standard. Will definitely use them again and
-                recommend them to everyone! ”
-              </CardText>
-            </Card>
-          </ThirdContainer>
+          ))}
         </CardsContainer>
       </InnerContainer>
       <Bottom />
